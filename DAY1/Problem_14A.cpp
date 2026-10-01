@@ -6,14 +6,12 @@ using namespace std;
 int main(){
 
     //input
+    
     int n, m;
-    cout << "Value of n: ";
     cin >> n;
-    cout << "Value of m: ";
     cin >> m;
 
-    vector<vector<int>> matrix(n, vector<int>(m));
-    cout<< "fill the matirx (only 1 and 0 allowed): \n";
+    vector<vector<char>> matrix(n, vector<char>(m));
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j< m; j++) {
@@ -21,13 +19,6 @@ int main(){
         }
     }
 
-    cout << "Matrix: \n";
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            cout << matrix[i][j];
-        }
-        cout << '\n';
-    }
     
     //logic
 
@@ -38,7 +29,7 @@ int main(){
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j< m; j++) {
-            if (matrix[i][j] == 1) {
+            if (matrix[i][j] == '*') {
                 top = min(top, i);
                 bottom = max(bottom, i);
                 left = min(left, j);
@@ -49,7 +40,6 @@ int main(){
     
     //output
     
-    cout << "final rectangle that bob will send is: \n";
     
     for (int i = top; i <= bottom; i++) {
         for (int j = left; j <= right; j++) {
